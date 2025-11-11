@@ -1,0 +1,24 @@
+stack_name    = "ds-ngs-v2-demo"
+location      = "uksouth"
+template_file = "/absolute/path/to/main.subscription.json"
+
+tags = {
+  project   = "net-guard-stack"
+  component = "stack-deployer"
+}
+
+excluded_principals = []
+excluded_actions = [
+  "Microsoft.Network/virtualNetworks/subnets/join/action",
+  "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action",
+  "Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action",
+  "Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action"
+]
+
+action_on_unmanage = {
+  managementGroups = "detach"
+  resourceGroups   = "detach"
+  resources        = "detach"
+}
+
+schema_validation_enabled = false
